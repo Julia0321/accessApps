@@ -1,0 +1,1 @@
+INSERT INTO kontrakton(kontrakton_id, door_state) VALUES(1, false);

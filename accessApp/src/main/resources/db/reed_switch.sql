@@ -1,0 +1,1 @@
+INSERT INTO reed_switch(reed_switch_id, door_state) VALUES(1, false);

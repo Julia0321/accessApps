@@ -1,0 +1,168 @@
+.form-label {
+    font-size: 2px; /* Bardzo mała wartość, upewnij się, że to jest zamierzone */
+    font-weight: bold;
+}
+
+.half-width {
+    width: 60vw;
+    display: block;
+    margin: auto;
+}
+
+.error {
+    color: red;
+}
+
+body {
+    background-color: darkseagreen;
+    font-family: "Arial", sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px lightgoldenrodyellow;
+"
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 2px lightgoldenrodyellow;
+}
+
+button:hover {
+    box-shadow: 2px 2px 2px olivedrab;
+    border: 3px solid olivedrab;
+}
+
+a:hover {
+    box-shadow: 2px 2px 2px olivedrab;
+    border: 3px solid olivedrab;
+}
+
+a {
+    box-shadow: 2px 2px 2px darkgreen;
+    border: 3px solid darkgreen;
+    font-weight: bold;
+    background: lightgoldenrodyellow;
+    margin: 2px;
+    padding: 4px;
+    color: black;
+    text-decoration: none;
+}
+
+.btn {
+    box-shadow: 2px 2px 2px darkgreen;
+    border: 3px solid darkgreen;
+    font-weight: bold;
+    background: lightgoldenrodyellow;
+    margin: 2px;
+    padding: 2px;
+    width: 100px;
+    font-size: 12px;
+    color: black;
+    border-radius: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Równomierne rozłożenie elementów */
+    align-items: center;
+    background-color: lightgoldenrodyellow;
+    border: 3px solid darkgreen;
+    box-shadow: 5px 5px 5px darkgreen;
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.containerNone {
+    display: flex;
+    justify-content: space-evenly; /* Równomierne rozłożenie elementów */
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.input-container {
+    flex-grow: 1;
+    display: flex;
+}
+
+.input-container.left {
+    justify-content: flex-start;
+}
+
+.input-container.right {
+    justify-content: flex-end;
+}
+
+input, select, label {
+    width: 100px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+select, input[type="button"], button {
+    width: 100%;
+    padding: 4px 4px;
+}
+
+.item {
+    display: flex; /* Użyj flex dla lepszego zarządzania treścią wewnętrzną */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 3px solid darkgreen;
+    box-shadow: 5px 5px 5px darkgreen;
+    background-color: lightgoldenrodyellow;
+    margin: 4px;
+    padding: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    height: 15vh;
+    width: 15vw;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; /* Ustawia elementy w pionie, jeden pod drugim */
+    align-items: center; /* Centruje wszystkie dzieci w poziomie */
+    justify-content: center; /* Centruje wszystkie dzieci w pionie */
+    gap: 5px; /* Ustawia odstęp między dziećmi */
+    width: 100%; /* Opcjonalnie, może być użyte do kontrolowania szerokości kontenera */ /* Dodatkowe paddingi dla lepszego wyglądu */
+    box-sizing: border-box; /* Zapewnia, że paddingi i border są wliczone w szerokość */
+    border: 5px solid darkgreen;
+    box-shadow: inset 0px 0px 10px darkgreen;
+    padding: 10px;
+    background-image: linear-gradient(to right, darkseagreen, lightgoldenrodyellow);
+}
+
+input[type="submit"] {
+    box-shadow: 2px 2px 2px darkgreen;
+    border: 3px solid darkgreen;
+    font-weight: bold;
+    background: lightgoldenrodyellow;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 2px 2px 2px olivedrab;
+    border: 3px solid olivedrab;
+}
+
+.image {
+    padding: 20px;
+    background-color: lightgoldenrodyellow;
+    align-items: center;
+    border: 3px solid darkgreen;
+    box-shadow: 5px 5px 5px darkgreen;
+"
+}

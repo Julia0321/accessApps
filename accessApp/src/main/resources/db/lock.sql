@@ -1,0 +1,1 @@
+INSERT INTO lock(lock_id, state) VALUES(1, false);

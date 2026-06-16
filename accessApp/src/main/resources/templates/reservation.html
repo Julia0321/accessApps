@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reservation.css}"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+            crossorigin="anonymous"></script>
+    <title>AccessApp</title>
+</head>
+<body class="main-container">
+
+<h1>Access App</h1>
+<img src="/images/buildings.png" alt="buildings with offices" class="half-width image">
+<br>
+<span class="containerNone">
+        <div sec:authorize="hasRole('ADMIN')" id="admin-button">
+            <a class="btn btn-success" role="button" th:href="@{/users/list}">Users</a>
+        </div>
+
+        <div sec:authorize="hasRole('MANAGEMENT_USER')" class="btn-group">
+              <button class="btn btn-secondary btn-sm dropdown-toggle btn-success" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false" id="management-button">
+                Reservations
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" th:href="@{/manageReservation}">PENDING</a>
+                <a class="dropdown-item" th:href="@{/manageReservation/accepted}">ACCEPTED</a>
+                <a class="dropdown-item" th:href="@{/manageReservation/rejected}">REJECTED</a>
+                <a class="dropdown-item" th:href="@{/manageReservation/canceled}">CANCELED</a>
+              </div>
+        </div>
+        <div sec:authorize="hasRole('USER')">
+            <a class="btn btn-success" role="button" th:href="@{/reservations/showMyReservations}">My reservations</a>
+        </div>
+
+    </span>
+<form th:action="@{/reservations/save}" th:object="${reservation}" method="POST">
+    <h6>Make a reservation!</h6>
+    <hr>
+    <div class="container">
+
+        <span th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <li th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+        </span>
+
+        <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="alert alert-danger"></span>
+        <span>
+                <div class="item">
+                    <label for="startDate">Start:</label>
+                    <input type="datetime-local" id="startDate" name="startDate">
+                </div>
+        </span>
+        <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="alert alert-danger"></span>
+        <span>
+                <div class="item">
+                    <label for="endDate">End:</label>
+                    <input type="datetime-local" id="endDate" name="endDate">
+                </div>
+            </span>
+        <span>
+                <div class="item">
+                    <select th:field="*{officeUuid}" id="officeUuid" name="officeUuid"></select>
+                </div>
+        </span>
+        <input type="submit" value="Book">
+    </div>
+</form>
+<footer>
+    <hr>
+    <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout">
+    </form>
+</footer>
+</body>
+
+<script>
+    const endDate = document.getElementById("endDate");
+    const startDate = document.getElementById("startDate");
+
+    endDate.addEventListener("change", () => {
+        fillOffices(startDate.value, endDate.value);
+    });
+
+    startDate.addEventListener("change", () => {
+        fillOffices(startDate.value, endDate.value);
+    });
+
+    function fillOffices(startReservation, endReservation){
+        if(startReservation && endReservation){
+            const apartmentSelect = document.getElementById("officeUuid");
+            apartmentSelect.innerHTML = "";
+
+            fetch(`/reservations/available-offices?endReservation=${endReservation}&startReservation=${startReservation}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (Object.keys(data).length === 0) {
+                        const option = document.createElement("option");
+                        option.textContent = "No available offices";
+                        apartmentSelect.appendChild(option);
+                    } else {
+                        for (const key in data) {
+                            const offices = data[key];
+
+                            const match = key.match(/numOfBuilding=(\w+)/);
+                            const buildingLabel = match ? match[1] : "Unknown";
+
+                            const group = document.createElement("optgroup");
+                            group.label = buildingLabel;
+
+                            offices.forEach(office => {
+                                const option = document.createElement("option");
+                                option.value = office.uuid;
+                                option.textContent = office.numOfOffice;
+                                group.appendChild(option);
+                            });
+
+                            apartmentSelect.appendChild(group);
+                        }
+
+                    }
+                })
+                .catch(err => {
+                    console.error("Error:", err);
+                    const option = document.createElement("option");
+                    option.textContent = "Refresh page and choose start reservation also.";
+                    apartmentSelect.appendChild(option);
+                });
+        }
+
+    }
+</script>
+
+</html>

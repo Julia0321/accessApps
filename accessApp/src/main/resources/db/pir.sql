@@ -1,0 +1,1 @@
+INSERT INTO pir(pir_id, motion) VALUES(1, false);
