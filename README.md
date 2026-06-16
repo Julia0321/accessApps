@@ -57,3 +57,6 @@ Do uruchomienia projektu potrzebne są:
 - płytka Arduino zgodna z użytym programem,
 - wymagane elementy elektroniczne, czujnik PIR, kontaktron, przekaźnik z optoizolacją
 - zamek elektromagnetyczny
+
+
+ <img width="642" height="647" alt="image" src="https://github.com/user-attachments/assets/8622933a-a86d-4907-9514-6d74730f205e" />
