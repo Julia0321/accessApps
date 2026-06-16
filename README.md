@@ -1,4 +1,4 @@
-# accessApps
+# AccessApp
 
 `accessApps` to projekt systemu kontroli dostępu do pomieszczeń, łączący aplikację serwerową z częścią sprzętową opartą o Arduino. Celem projektu jest umożliwienie zarządzania użytkownikami, rezerwacjami pomieszczeń oraz fizycznym dostępem do wybranych biur lub stref.
 
