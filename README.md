@@ -58,5 +58,6 @@ Do uruchomienia projektu potrzebne są:
 - wymagane elementy elektroniczne, czujnik PIR, kontaktron, przekaźnik z optoizolacją
 - zamek elektromagnetyczny
 
+## Schemat podłączenia
 
  <img width="642" height="647" alt="image" src="https://github.com/user-attachments/assets/8622933a-a86d-4907-9514-6d74730f205e" />
