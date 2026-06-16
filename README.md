@@ -28,4 +28,31 @@ System umożliwia:
 - wysyłanie powiadomień e-mail,
 - monitorowanie stanu wybranych czujników.
 
-## Struktura projektu
+### Backend
+
+- Java 17,
+- Spring Boot,
+- Spring Web,
+- Spring Data JPA,
+- Spring Security,
+- Thymeleaf,
+- PostgreSQL,
+- Maven,
+- Lombok.
+
+### Część sprzętowa
+
+- Arduino,
+- język Arduino/C++,
+- czujniki i elementy wykonawcze związane z kontrolą dostępu.
+
+## Wymagania
+
+Do uruchomienia projektu potrzebne są:
+
+- Java 17 lub nowsza,
+- Maven lub dołączony Maven Wrapper,
+- PostgreSQL,
+- Arduino IDE lub inne środowisko obsługujące pliki `.ino`,
+- płytka Arduino zgodna z użytym programem,
+- wymagane elementy elektroniczne, np. czujniki, zamek lub moduły komunikacyjne.
