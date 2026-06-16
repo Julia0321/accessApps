@@ -56,3 +56,4 @@ Do uruchomienia projektu potrzebne są:
 - Arduino IDE lub inne środowisko obsługujące pliki `.ino`,
 - płytka Arduino zgodna z użytym programem,
 - wymagane elementy elektroniczne, czujnik PIR, kontaktron, przekaźnik z optoizolacją
+- zamek elektromagnetyczny
